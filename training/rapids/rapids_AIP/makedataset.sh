@@ -5,8 +5,8 @@
 # Run in terminal from ~/ : bash rapids_AIP/makedataset.sh
 
 # Set chunks to 10 for 10 1 GB files (which will be uploaded 10 times for a total of 100GB). If you want more data to play around with, just increase NUM_CHUNKS)
-NUM_CHUNKS=${1:-10}
-GCS_BUCKET=[BUCKET_NAME] #Choose a name for your bucket, or if you already have a bucket/folder in mind, put that here
+#NUM_CHUNKS=${1:-10}
+#GCS_BUCKET=[BUCKET_NAME] #Choose a name for your bucket, or if you already have a bucket/folder in mind, put that here
 
 # Create a GCS bucket in which to store the data
 #gsutil mb -l us-central1 gs://$GCS_BUCKET
@@ -45,16 +45,16 @@ do
 done
 
 # Upload data to GCS, in ten different folders so that we can easily test different subsets of the data (each folder holds 10GB of data)
-gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcdefghij/
-gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcdefghi/
-gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcdefgh/
-gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcdefg/
-gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcdef/
-gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcde/
-gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcd/
-gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abc/
-gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/ab/
-gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/a/
+#gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcdefghij/
+#gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcdefghi/
+#gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcdefgh/
+#gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcdefg/
+#gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcdef/
+#gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcde/
+#gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abcd/
+#gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/abc/
+#gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/ab/
+#gsutil -m cp ~/chunked_higgs/* gs://$GCS_BUCKET/a/
 
 # Remove the downloaded and replicated files to free up space
 cd ~/
